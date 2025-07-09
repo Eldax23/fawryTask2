@@ -9,7 +9,7 @@ public abstract class BaseBook implements IBook {
     private int year;
     private double price;
 
-    public BaseBook(String ISBN , String title , int year , int price) {
+    public BaseBook(String ISBN , String title , int year , double price) {
         this.ISBN = ISBN;
         this.title = title;
         this.year = year;

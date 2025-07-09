@@ -5,7 +5,7 @@ import Interfaces.Services.IDeliveryService;
 
 public class PaperBook extends BaseBook {
     private int stock;
-    public PaperBook(String ISBN , String title , int year , int price , int stock) {
+    public PaperBook(String ISBN , String title , int year , double price , int stock) {
 
         super(ISBN , title , year , price);
         this.stock = stock;

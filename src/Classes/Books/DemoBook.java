@@ -4,7 +4,7 @@ import Interfaces.Services.IDeliveryService;
 
 public class DemoBook extends BaseBook {
 
-    public DemoBook(String ISBN , String title , int year , int price) {
+    public DemoBook(String ISBN , String title , int year , double price) {
         super(ISBN , title , year , price);
     }
 
