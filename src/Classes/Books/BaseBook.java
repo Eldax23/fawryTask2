@@ -1,7 +1,7 @@
 package Classes.Books;
 
 import Interfaces.IBook;
-import Interfaces.Services.IShippingService;
+import Interfaces.Services.IDeliveryService;
 
 public abstract class BaseBook implements IBook {
     private String ISBN;
@@ -42,7 +42,7 @@ public abstract class BaseBook implements IBook {
     }
 
     @Override
-    public void buyBook(int quantity, String email , IShippingService shippingService) {
+    public void buyBook(int quantity, String email , IDeliveryService shippingService) {
 
     }
 }

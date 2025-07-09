@@ -1,6 +1,6 @@
 package Classes.Books;
 
-import Interfaces.Services.IShippingService;
+import Interfaces.Services.IDeliveryService;
 
 public class Ebook extends BaseBook{
     private String fileType;
@@ -22,7 +22,7 @@ public class Ebook extends BaseBook{
     }
 
     @Override
-    public void buyBook(int quantity,  String email , IShippingService shippingService){
+    public void buyBook(int quantity,  String email , IDeliveryService shippingService){
         System.out.println("An Ebook with title " + getTitle() + " and a filetype " + getFileType());
         shippingService.deliver(email);
     }
