@@ -45,4 +45,10 @@ public abstract class BaseBook implements IBook {
     public void buyBook(int quantity, String email , IDeliveryService shippingService) {
 
     }
+
+    @Override
+    public String toString() {
+        return "\n--------------\nTitle: " + this.getTitle() + "\nYear: " + this.getYear() + "\nPrice: " + this.getPrice() + "\n------------";
+    }
+
 }

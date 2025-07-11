@@ -25,7 +25,8 @@ public class UserProgram {
             System.out.println("1-Add Book");
             System.out.println("2-Buy Book");
             System.out.println("3-Remove outdated books");
-            System.out.println("4-Exit");
+            System.out.println("4-List books");
+            System.out.println("5-Exit");
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -38,6 +39,9 @@ public class UserProgram {
                     break;
                 case 3:
                     inventory.removeOutDatedBooks(5); // in years
+                    break;
+                case 4:
+                    inventory.listBooks();
                     break;
                 default:
                     System.out.println("invalid option.");

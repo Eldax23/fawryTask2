@@ -34,12 +34,35 @@ public class Inventory implements Iinventory { // this is the main inventory whe
     public void removeOutDatedBooks(int expiryAge) {
         int currYear = Year.now().getValue();
         ArrayList<BaseBook> res = new ArrayList<BaseBook>();
-        inventory.forEach((isbn , book) -> {
-            if(currYear - book.getYear() > expiryAge) {
-                inventory.remove(isbn);
-                res.add(book);
+        ArrayList<String> keysToBeRemoved = new ArrayList<String>();
+        for(Map.Entry<String,  BaseBook> m : inventory.entrySet()) {
+            BaseBook b = m.getValue();
+            if(currYear - b.getYear() > expiryAge) {
+                res.add(b);
+                keysToBeRemoved.add(m.getKey());
             }
-        });
+        }
+
+        for(String key : keysToBeRemoved) {
+            inventory.remove(key);
+        }
+
+        System.out.println("\nBooks Removed: " + res.size());
+        for(BaseBook b : res) {
+            System.out.println(res.toString() + "\n");
+        }
+    }
+
+    public void listBooks() {
+        if(inventory.isEmpty()) System.out.println("The Inventory Is Currently Empty");
+        for(Map.Entry<String , BaseBook> m : inventory.entrySet()) {
+            BaseBook b = m.getValue();
+//            System.out.println("ISBN: " + m.getKey() + "\nTitle: " + b.getTitle() +
+//                    "\nPrice: " + b.getPrice() + "\nYear: " + b.getYear()
+//            );
+
+            System.out.println(b.toString());
+        }
     }
 
     @Override
