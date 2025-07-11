@@ -22,7 +22,7 @@ public class PaperBook extends BaseBook {
             throw new IllegalArgumentException("Not enough stock");
         }
         this.stock -= quantity;
-        System.out.println("the book " + this.getTitle() + " has been bought with a total of " + getPrice());
+        System.out.println("the book " + this.getTitle() + " has been bought with a total of " + getPrice() * quantity + "$");
         shippingService.deliver(email); // the delivery method will change based on the given argument
     }
 }

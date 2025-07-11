@@ -2,6 +2,7 @@ package Classes.Inventory;
 
 import Classes.Books.BaseBook;
 
+import javax.sql.rowset.BaseRowSet;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,12 +19,25 @@ public class Inventory implements Iinventory { // this is the main inventory whe
         System.out.println(book.getTitle() + "  Book has been added");
     }
 
+    public void removeBook(String ISBN) {
+        BaseBook removedBook = inventory.get(ISBN);
+        if(removedBook == null) {
+            throw new IllegalArgumentException("no book with that ISBN");
+        }
+
+        inventory.remove(ISBN);
+        System.out.println("the book with ISBN : " + ISBN + " and title " + removedBook.getTitle()
+        + "HAS BEEN DELETED.");
+    }
+
     @Override
     public void removeOutDatedBooks(int expiryAge) {
         int currYear = Year.now().getValue();
+        ArrayList<BaseBook> res = new ArrayList<BaseBook>();
         inventory.forEach((isbn , book) -> {
             if(currYear - book.getYear() > expiryAge) {
                 inventory.remove(isbn);
+                res.add(book);
             }
         });
     }

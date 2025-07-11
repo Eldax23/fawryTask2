@@ -21,6 +21,7 @@ public class BookShop implements IBookShop {
     public void buyBook(String ISBN,  int quantity, String contact) {
         IBook book = inventory.getBook(ISBN);
 
+
         if(!book.isForSale()) {
             throw new IllegalArgumentException("This book isn't for sale");
         }
